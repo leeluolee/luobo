@@ -1,14 +1,9 @@
 'use strict'
 
+fs = require 'fs'
+mkdirp = require 'mkdirp'
 
-isDIr = (str) ->
-    
-
-
-
-copy = (dir) ->
-  # ...
-
+copy = (from ,dest ,callback) ->
 
 
 
