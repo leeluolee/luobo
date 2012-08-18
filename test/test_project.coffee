@@ -2,6 +2,7 @@ project = require "../lib/index.js"
 fs = require 'fs'
 path = require 'path'
 
+project.create()
 module.exports =
   "true is ok": (test) ->
     test.ok true
