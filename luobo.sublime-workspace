@@ -91,18 +91,47 @@
 			"file": "src/index.coffee",
 			"settings":
 			{
-				"buffer_size": 62,
+				"buffer_size": 215,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "'use strict'\nmodule.exports = (source)->\n\n",
-			"file": "src/create.coffee",
-			"file_size": 57,
-			"file_write_time": 1344747640000000,
+			"file": "/home/luobo/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 42,
+				"buffer_size": 384,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/create.coffee",
+			"settings":
+			{
+				"buffer_size": 100,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test/test_project.coffee",
+			"settings":
+			{
+				"buffer_size": 637,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Cakefile",
+			"settings":
+			{
+				"buffer_size": 1539,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 5,
 				"line_ending": "Unix"
 			}
 		}
@@ -113,6 +142,26 @@
 		"height": 375.0,
 		"selected_items":
 		[
+			[
+				"th",
+				"Themr: Ayin"
+			],
+			[
+				"themr",
+				"Themr: ProKit"
+			],
+			[
+				"the",
+				"Themr: AppKit"
+			],
+			[
+				"c",
+				"Coffee: Run Script"
+			],
+			[
+				"coffee",
+				"Coffee: Check Syntax"
+			],
 			[
 				"ins",
 				"Package Control: Install Package"
@@ -179,6 +228,7 @@
 	},
 	"file_history":
 	[
+		"/home/code/cla/luobo/lib/index.js",
 		"/home/luobo/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/home/luobo/.config/sublime-text-2/Packages/User/coffee-script.sublime-build",
 		"/home/code/cla/luobo/src/cli_wrapper/index.coffee",
@@ -313,7 +363,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -321,15 +371,15 @@
 					"file": "src/index.coffee",
 					"settings":
 					{
-						"buffer_size": 62,
+						"buffer_size": 215,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								31,
-								31
+								66,
+								66
 							]
 						],
 						"settings":
@@ -344,23 +394,133 @@
 				},
 				{
 					"buffer": 1,
-					"file": "src/create.coffee",
+					"file": "/home/luobo/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 					"settings":
 					{
-						"buffer_size": 42,
+						"buffer_size": 384,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								42,
-								42
+								52,
+								52
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/create.coffee",
+					"settings":
+					{
+						"buffer_size": 100,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								32,
+								32
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "test/test_project.coffee",
+					"settings":
+					{
+						"buffer_size": 637,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								491,
+								491
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Cakefile",
+					"settings":
+					{
+						"buffer_size": 1539,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1153,
+								1153
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 36.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "README.md",
+					"settings":
+					{
+						"buffer_size": 5,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -529,11 +689,11 @@
 		"selected_items":
 		[
 			[
-				"re",
+				"",
 				"/home/code/dazuoye/1/yemianqiefen/reports.sublime-project"
 			],
 			[
-				"",
+				"re",
 				"/home/code/dazuoye/1/yemianqiefen/reports.sublime-project"
 			],
 			[
