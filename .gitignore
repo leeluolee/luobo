@@ -1,6 +1,4 @@
 node_modules
 lib
-<<<<<<< HEAD
 *sublime*
-=======
->>>>>>> e9f5a8bf9844a8e7eb4f4bf15c798b553ee6c839
+npm-debug.log
