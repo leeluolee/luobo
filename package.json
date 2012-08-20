@@ -1,7 +1,7 @@
 { "name": "luobo"
 , "description": "a front-end dev toolbox"
 , "author": "leeluolee"
-, "version": "0.0.2"
+, "version": "0.0.3"
 , "repository":
   { "type": "git"
   , "url": "https://github.com/leeluolee/luobo"
@@ -27,6 +27,6 @@
   }
 , "scripts":{
   "prepublish" : "coffee -o lib/ src/"
-, "postinstall" : "coffee -o lib/ src/"
+, "postinstall" : "node setup.js"
   }
 }
