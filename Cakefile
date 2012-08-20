@@ -1,7 +1,6 @@
 fs = require 'fs'
 {print} = require 'sys'
 {spawn, exec} = require 'child_process'
-wrench =  require 'wrench'
 
 build = (watch, callback) ->
   if typeof watch is 'function'

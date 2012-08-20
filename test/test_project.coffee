@@ -2,7 +2,6 @@
 fs = require 'fs'
 path = require 'path'
 helper = require "../lib/helper"
-project = (require '../').server()
 module.exports =
   "true is ok": (test) ->
     test.ok true
@@ -19,11 +18,6 @@ module.exports =
   "helper getLocalIP will get the local outer" : (test) ->
     console.log helper.getLocalIP()
     test.done()
-  
-  # "start server" : (test) ->
-  #   project.server()
-
-  
   
   
 

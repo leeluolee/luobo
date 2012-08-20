@@ -86,4 +86,4 @@ module.exports =
         (require "open") "http://#{ip}:#{port}"
         console.log "will automately open the browser if i can"
 
-     opy: require "./copy"      
+    copy: require "./copy"      
