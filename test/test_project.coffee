@@ -1,8 +1,8 @@
-project = require "../lib/index.js"
+# project = require "../lib"
 fs = require 'fs'
 path = require 'path'
-
-project.create()
+helper = require "../lib/helper"
+project = (require '../').server()
 module.exports =
   "true is ok": (test) ->
     test.ok true
@@ -16,13 +16,18 @@ module.exports =
   #     console.log err if err?
   #     test.done()
 
+  "helper getLocalIP will get the local outer" : (test) ->
+    console.log helper.getLocalIP()
+    test.done()
+  
+  # "start server" : (test) ->
+  #   project.server()
+
+  
+  
+  
 
 
-
-
-fs.writeFile path.join(__dirname, '..','README.md'), [1,2,3] ,(err) ->
-  console.log err if err?
-  console.log "sccucess" if not err
 
   
     

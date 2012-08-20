@@ -6,12 +6,14 @@ express = require 'express'
 http = require 'http'
 io = require 'socket.io'
 watch = require 'watch-tree-maintained'
+helper = require './helper'
 
 
 # global arg
 
-pwd = process.env.PWD
+pwd = process.cwd()
 argv = process.argv.slice 2
+ip = helper.getLocalIP()
 
 # helper function
 
@@ -33,7 +35,7 @@ autoReload = (server, app, port = 80,path = pwd) ->
 
     stream.on "end", ->
       console.log "stream end"
-      res.write "var socket = io.connect( 'http://localhost:#{port}'); socket.on('update', function(data){window.location.reload(); })"
+      res.write "var socket = io.connect( 'http://#{ip}:#{port}'); socket.on('update', function(data){window.location.reload(); })"
       res.end()
 
     req.on 'close', ->
@@ -62,7 +64,8 @@ autoReload = (server, app, port = 80,path = pwd) ->
 
     console.log "socket watching the files in#{path} modified"
     
-# exposure
+# 1.exposure
+##############################################
 module.exports =
     create: (from, root, callback) ->
       fs.unlink (sysPath.join ['__dirname', '..', 'tfs']) ,(err) ->
@@ -76,22 +79,13 @@ module.exports =
         app.use express.bodyParser()
         app.use express.static pwd  #在当前目录设置server
 
-
       server = http.createServer app
       autoReload server, app, port if hasAutoreload # start the websocket
-      server.listen port, ->       #  start the server
-        console.log "server start at localhost:8008"
-        (require "open") "http://localhost:#{port}"
-        console.log "will automately open the browser if i can"
+      # server.listen port, ->       #  start the server
+      #   console.log "server start at localhost(#{ip}):8008"
+      #   (require "open") "http://#{ip}:#{port}"
+      #   console.log "will automately open the browser if i can"
 
-      copy: require "./copy"      
-      
+    copy: require "./copy"      
 
-
-
-       
-      
-
-      
-
-      # ...
+module.exports.server()
