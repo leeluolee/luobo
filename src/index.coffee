@@ -35,7 +35,7 @@ autoReload = (server, app, port = 80,path = pwd) ->
 
     stream.on "end", ->
       console.log "stream end"
-      res.write "var socket = io.connect( 'http://#{ip}:#{port}'); socket.on('update', function(data){window.location.reload(); })"
+      res.write "var socket = io.connect( 'http://localhost:#{port}'); socket.on('update', function(data){window.location.reload(); })"
       res.end()
 
     req.on 'close', ->
@@ -57,7 +57,7 @@ autoReload = (server, app, port = 80,path = pwd) ->
   io.sockets.on "connection" , (socket) ->
     watcher = (require "watch-tree-maintained").watchTree path, 
       "match" : "\." + matches.join '$|\\.'
-      "sample-rate" : 2 
+      "sample-rate" : 1 
 
     watcher.on "fileModified" ,(path) ->
       socket.emit "update", "path": path
@@ -79,11 +79,13 @@ module.exports =
         app.use express.bodyParser()
         app.use express.static pwd  #在当前目录设置server
 
+      ips = ip.join(",")  
       server = http.createServer app
       autoReload server, app, port if hasAutoreload # start the websocket
       server.listen port, ->       #  start the server
-        console.log "server start at localhost(#{ip}):8008"
-        (require "open") "http://#{ip}:#{port}"
-        console.log "will automately open the browser if i can"
+        console.log "server start at localhost:8008"
+        console.log "your computer has no-interval ip as follow: #{ips}. choose one for outer watching"
+        (require "open") "http://localhost:#{port}"
+        console.log "i will automately open the browser if i can"
 
-     opy: require "./copy"      
+    copy: require "./copy"      
