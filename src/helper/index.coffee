@@ -11,7 +11,7 @@ getLocalIP = ->
   netInterfaces = do os.networkInterfaces
   results = []
   for i,inf of netInterfaces
-    results.push item.address for item in inf when item.family is "IPv4" and not item.internal
+    results.push "#{i} : #{item.address}" for item in inf when item.family is "IPv4" and not item.internal
   results
 
 

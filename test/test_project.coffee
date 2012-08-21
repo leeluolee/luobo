@@ -2,6 +2,8 @@
 fs = require 'fs'
 path = require 'path'
 helper = require "../lib/helper"
+
+console.log  helper.getLocalIP()
 module.exports =
   "true is ok": (test) ->
     test.ok true
