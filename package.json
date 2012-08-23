@@ -18,6 +18,7 @@
   , "socket.io": ">= 0.1"
   , "watch-tree-maintained": ">=0.1.2"
   , "open": ">0.0.1"
+  , "lazy" : "~ 1.0"
   }
 , "devDependencies":
   { "nodeunit": ">=0.5.0"

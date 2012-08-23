@@ -37,28 +37,28 @@ autoReload = (server, app, path = pwd) ->
     stream.on "end", ->
       console.log "stream end"
       res.write """
-        var origin = window.location.origin;
+      window.onload=function(){
+        var location = window.location,
+            origin = location.protocol+"//"+location.host;
         var socket = io.connect(origin); 
         var stylesheets = document.getElementsByTagName("link");
         var cacheBuster = function(url){
-            var date = Math.round(Date.now() / 1000).toString();
+            var date = Math.round(+new Date/1000).toString();
             url = url.replace(/(\\&|\\\\?)cacheBuster=\\d*/, '');
             return url + (url.indexOf('?') >= 0 ? '&' : '?') +'cacheBuster=' + date;
         };
         var updateStyle = function(stylePathName){
           for(var i = stylesheets.length;i--;){
-            var href = stylesheets[i].href;
-            if(href.split("?")[0].slice(origin.length) === stylePathName){
-              stylesheets[i].href=cacheBuster(href)
-              return true;
-            }
+            var href = stylesheets[i].getAttribute("href");
+            stylesheets[i].setAttribute("href",cacheBuster(stylesheets[i].getAttribute("href")));
           }
-          return false
+          return true;
         }
         socket.on('update', function(data){
           if(data.css && updateStyle(data.css)) return true;
           window.location.reload();     
         })
+      }
       """
       res.end()
 
