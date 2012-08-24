@@ -14,7 +14,6 @@ getLocalIP = ->
     results.push "#{i} : #{item.address}" for item in inf when item.family is "IPv4" and not item.internal
   results
 
-
 # 2.exposure
 ##############################################
 

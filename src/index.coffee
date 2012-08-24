@@ -82,7 +82,7 @@ autoReload = (server, app, path = pwd) ->
     watcher.on "fileModified" ,(path) ->
       data ="path":path
       # if css file modified   dont't reload page just refresh the link.href
-      data.css = path.slice pwd.length if (~path.indexOf ".css")?
+      data.css = path.slice pwd.length if (~path.indexOf ".css")
       socket.emit "update", data
 
 # 1.exposure
@@ -98,9 +98,9 @@ module.exports =
 
       if hasAutoreload 
         # watch all html request and inject /reload.js 
-        app.get /^((.*)\.html)$/,(req,res,next) ->
+        app.get /^(.*(\.html|\/))$/,(req,res,next) ->
           filepath = sysPath.join pwd, req.params[0]
-          console.log(req.params)
+          filepath = sysPath.join filepath,"index.html" if not fsExist filepath #if not exist append index.html
           if fsExist filepath
             file = fs.readFileSync filepath,"utf8"
             if not ~file.indexOf "/reload.js"
@@ -126,7 +126,7 @@ module.exports =
       server.listen port, ->       #  start the server
         console.log "server start at localhost:8008"
         console.log "your computer has no-interval ip as follow: #{ipInfo}. choose one for outer watching"
-        (require "open") "http://localhost:#{port}"
+        (require "open") "http://localhost:#{port}/index.html"
         console.log "i will automately open the browser if i can"
 
     copy: require "./copy"      

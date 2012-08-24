@@ -2,8 +2,19 @@
 fs = require 'fs'
 path = require 'path'
 helper = require "../lib/helper"
+mkdirp = require 'mkdirp'
 
-console.log  helper.getLocalIP()
+fs.readdir "/home/code/dazuoye/2", (err, files) ->
+  files.forEach (file) ->
+    console.log file
+  
+  
+    # ...
+  
+  
+  # ...
+
+
 module.exports =
   "true is ok": (test) ->
     test.ok true
