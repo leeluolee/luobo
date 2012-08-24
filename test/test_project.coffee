@@ -1,18 +1,30 @@
 # project = require "../lib"
-fs = require 'fs'
+sysFs = require 'fs'
 path = require 'path'
-helper = require "../lib/helper"
+{fs,colorify,logger,util} = require "../lib/helper"
 mkdirp = require 'mkdirp'
 
-fs.readdir "/home/code/dazuoye/2", (err, files) ->
-  files.forEach (file) ->
-    console.log file
-  
-  
-    # ...
-  
-  
-  # ...
+# logger.error "error"
+# logger.info "info"
+# logger.debug "debug"
+# logger.done "done"
+# logger.warn "warn"
+
+logger.info fs.getCMD("coffee")
+
+printColor = ->
+  result = ""
+  for i in [0,1,4,5,9]
+    result += "==style==\n"
+    for j in [30..37].concat [90..97]
+      result += "=fore=\t"
+      for k in [40..47].concat [100..107]
+        result += colorify "style:#{i}-fore:#{j}-back:#{k}", j, k, i
+  console.log result
+
+# do printColor
+
+
 
 
 module.exports =
@@ -20,16 +32,10 @@ module.exports =
     test.ok true
     test.done()
   "unlink should delete the file" : (test) ->
-    # fs.unlink path.join('..','README.md'), (err) ->
-    #   console.log err if err?
       test.done()
-  # "write with flag w should add the file" : (test) ->
-  #   fs.writeFile path.join('..','README.md'), "hahahaha" ,(err) ->
-  #     console.log err if err?
-  #     test.done()
 
   "helper getLocalIP will get the local outer" : (test) ->
-    console.log helper.getLocalIP()
+    console.log util.getLocalIP()
     test.done()
   
   

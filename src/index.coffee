@@ -6,14 +6,14 @@ express = require 'express'
 http = require 'http'
 io = require 'socket.io'
 watch = require 'watch-tree-maintained'
-helper = require './helper'
+{util} = require './helper'
 
 
 # global arg
 
 pwd = process.cwd()
 argv = process.argv.slice 2
-ip = helper.getLocalIP()
+ip = util.getLocalIP()
 fsExist = fs.existsSync || sysPath.existsSync
 
 # helper function
@@ -92,7 +92,6 @@ module.exports =
       fs.unlink (sysPath.join ['__dirname', '..', 'tfs']) ,(err) ->
         throw err if err?
         console.log 'successfully unlink file', arguments
-
     server: (port = 8008, hasAutoreload = true) ->
       app = express()
 
@@ -127,6 +126,7 @@ module.exports =
         console.log "server start at localhost:8008"
         console.log "your computer has no-interval ip as follow: #{ipInfo}. choose one for outer watching"
         (require "open") "http://localhost:#{port}/index.html"
-        console.log "i will automately open the browser if i can"
 
     copy: require "./copy"      
+
+
