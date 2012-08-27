@@ -18,9 +18,23 @@ getCMD = (cmd) ->
 
     console.log index
     # ...
-  
+# wraper js
+wrapJs = (source, id) ->
+  """
+  define(#{id}, function(require, exports, module){
+    #{source.replace(/\n(?!\n)/g, '\n  ')}
+  });
+  """
+  # ...
+
+
+
 module.exports = file =
-  getCMD : getCMD
+  getCMD: getCMD
+  wraper:() ->
+    # ...
+  
+   
   
 
 
