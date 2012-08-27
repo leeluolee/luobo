@@ -52,7 +52,6 @@ module.exports = (from, dest = pwd) ->
   return copySvn from,dest if svnReg.test from
   return copyDir from,dest
 
-copyGit "https://github.com/leeluolee/luobo", "luobotou"
 
 
 

@@ -10,7 +10,7 @@ mkdirp = require 'mkdirp'
 # logger.done "done"
 # logger.warn "warn"
 
-logger.info fs.getCMD("coffee")
+logger.info fs.getCMD("/coffee")
 
 printColor = ->
   result = ""

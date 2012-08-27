@@ -87,6 +87,7 @@ autoReload = (server, app, path = pwd) ->
 
 # 1.exposure
 ##############################################
+
 module.exports =
     create: (from, root, callback) ->
       fs.unlink (sysPath.join ['__dirname', '..', 'tfs']) ,(err) ->
@@ -97,7 +98,7 @@ module.exports =
 
       if hasAutoreload 
         # watch all html request and inject /reload.js 
-        app.get /^(.*(\.html|\/))$/,(req,res,next) ->
+        app.get /^(.*(\.html))$/,(req,res,next) ->
           filepath = sysPath.join pwd, req.params[0]
           filepath = sysPath.join filepath,"index.html" if not fsExist filepath #if not exist append index.html
           if fsExist filepath
@@ -106,15 +107,14 @@ module.exports =
               seps = file.split "</head>"  #TODO: 直接操作字符串 性能太差
               seps.splice 1 ,0 ,'<script src="/reload.js"></script></head>'
               file = seps.join ""
-              res.setHeader "Content-Type", "text/html"
-              # not charlength  but bytelength
-              res.setHeader "Content-Length", Buffer.byteLength file 
-              res.send file
+            res.setHeader "Content-Type", "text/html"
+            # not charlength  but bytelength
+            res.setHeader "Content-Length", Buffer.byteLength file 
+            res.send file
           else 
             next()
 
       app.configure ->
-        app.use express.methodOverride()
         app.use express.bodyParser()
         app.use express.static pwd  #在当前目录设置server
 
