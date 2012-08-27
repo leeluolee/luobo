@@ -20,6 +20,7 @@
   , "open": ">0.0.1"
   , "lazy" : "~ 1.0"
   , "ncp" : "0.2.x"
+  , "findit" : "0.1.x"
   }
 , "devDependencies":
   { "nodeunit": ">=0.5.0"

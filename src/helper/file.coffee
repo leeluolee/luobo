@@ -1,4 +1,7 @@
+fs = require "fs"
 sysPath = require "path"
+{spawn, exec} = require "child_process"
+mkdirp = require "mkdirp"
 
 
 COLON = if process.platform is "win32" then ";" else ":"
@@ -18,6 +21,27 @@ getCMD = (cmd) ->
 
     console.log index
     # ...
+
+writeFile = (path, source, callback) -> 
+  dirname = sysPath.dirname path
+  # 首先判断是否存在文件夹
+  fs.stat dirname, (err, stat) ->
+    if err? or not stat.isDirectory() 
+      mkdirp dirname, (err) ->
+        return callback err if err?
+        fs.writeFile path, source, callback 
+    else
+      fs.writeFile path, source, callback 
+      
+
+      
+      
+
+    
+  
+  
+
+
 # wraper js
 wrapJs = (source, id) ->
   """
@@ -25,14 +49,16 @@ wrapJs = (source, id) ->
     #{source.replace(/\n(?!\n)/g, '\n  ')}
   });
   """
-  # ...
+wrapFile = (filename, dest) ->
 
 
 
-module.exports = file =
+
+
+
+module.exports =
   getCMD: getCMD
-  wraper:() ->
-    # ...
+  writeFile: writeFile
   
    
   

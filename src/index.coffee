@@ -128,5 +128,6 @@ module.exports =
         (require "open") "http://localhost:#{port}/index.html"
 
     copy: require "./copy"      
+    wrap: require "./wrapper"
 
 

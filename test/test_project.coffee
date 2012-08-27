@@ -1,8 +1,10 @@
 # project = require "../lib"
+
 sysFs = require 'fs'
 path = require 'path'
-{fs,colorify,logger,util} = require "../lib/helper"
+{file,colorify,logger,util} = require "../lib/helper"
 mkdirp = require 'mkdirp'
+{wrap} = require "../lib"
 
 # logger.error "error"
 # logger.info "info"
@@ -10,7 +12,10 @@ mkdirp = require 'mkdirp'
 # logger.done "done"
 # logger.warn "warn"
 
-logger.info fs.getCMD("/coffee")
+# file.writeFile "/home/tmp_zhenghaibo.txt","hahaha2", (err) ->
+#   logger.error err if err?
+
+
 
 printColor = ->
   result = ""

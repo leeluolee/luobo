@@ -46,6 +46,7 @@ copyDir = (from, dest) ->
   ncp from, dest ,(err) ->
     logger.error err if err?
 
+
 module.exports = (from, dest = pwd) ->
   dest = sysPath.resolve pwd, dest
   return copyGit from,dest if gitReg.test from
