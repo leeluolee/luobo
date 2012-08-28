@@ -2,6 +2,7 @@ fs = require 'fs'
 sysPath = require "path"
 {file, logger} = require "./helper"
 coffee = require "coffee-script"
+
 # wraper js
 wrapJs = (source, id) ->
   """
@@ -20,7 +21,7 @@ compiler =
 
 
 wrapFile = (from, dest) ->
-  extname = sysPath.extname(from).slice(1)
+  extname = sysPath.extname(from).slice 1
   fs.readFile from, "utf8", (err, data) ->
     return logger err if err?
     source = compile[extname] data
@@ -29,7 +30,7 @@ wrapFile = (from, dest) ->
 
 # dir version
 wrapDir = (from, dest) ->
-  fs.readdir
+  find = (require "findit").
 
 
 wrap = (from, dest) ->
